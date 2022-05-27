@@ -1,0 +1,71 @@
+""" 
+Objectives
+    Setup a Python Dataflow project using Apache Beam
+    Write a simple pipeline in Python
+    Execute the query on the local machine
+    Execute the query on the cloud
+
+Check project permissions
+    Confirm that the default compute Service Account 
+    {project-number}-compute@developer.gserviceaccount.com is present and has the 
+    editor role assigned. 
+
+Ensure that the Dataflow API is successfully enabled
+    Enable Dataflow API
+
+
+"""
+
+- Preparation
+    In the Console, on the Navigation menu (Navigation menu icon), click Compute Engine > VM instances.
+    Locate the line with the instance called training-vm.
+    On the far right, under Connect, click on SSH to open a terminal window.
+    In this lab, you will enter CLI commands on the training-vm.
+
+
+- Download Code Repository
+    git clone https://github.com/GoogleCloudPlatform/training-data-analyst
+
+
+- Create a Cloud Storage bucket
+    BUCKET="<your unique bucket name (Project ID)>"
+    echo $BUCKET
+
+- Pipeline filtering
+    Return to the training-vm SSH terminal and navigate to the directory /training-data-analyst/courses/data_analysis/lab2/python 
+    and view the file grep.py.
+
+
+    cd ~/training-data-analyst/courses/data_analysis/lab2/python
+    nano grep.py
+
+--------------------------------
+- Execute the pipeline locally
+--------------------------------
+    python3 grep.py
+
+    Locate the correct file by examining the file's time
+        ls -al /tmp
+
+    Examine the output file(s).
+        cat /tmp/output-*
+
+----------------------------------------
+- Execute the pipeline on the cloud
+----------------------------------------
+
+- Copy some Java files to the cloud. In the training-vm SSH terminal, enter the following commmand:
+    gsutil cp ../javahelp/src/main/java/com/google/cloud/training/dataanalyst/javahelp/*.java gs://$BUCKET/javahelp
+
+
+- Using Nano, edit the Dataflow pipeline in grepc.py
+    nano grepc.py
+
+- Replace PROJECT and BUCKET with your Project ID and Bucket name.
+    PROJECT='cloud-training-demos'
+    BUCKET='cloud-training-demos'
+
+- Submit the Dataflow job to the cloud:
+    python3 grepc.py
+
+    
