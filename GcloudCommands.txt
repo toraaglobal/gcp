@@ -1,0 +1,23 @@
+List auth
+    gcloud auth list 
+
+List Project 
+    gcloud config list project 
+
+Help 
+    gcloud -h 
+
+Command help 
+    gcloud <command> --help 
+    gcloud config --help
+
+List all config 
+    gcloud config list --all 
+
+creating VM instance
+    gcloud compute instances create <instance name> --zone us-central1-a 
+    gcloud compute instances create --help 
+
+create a project 
+    gcloud projects create YOUR-PROJECT-NAME
+
