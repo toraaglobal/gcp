@@ -1,0 +1,30 @@
+- Check project permissions
+    Confirm that the default compute Service Account {project-number}-compute@developer.
+    gserviceaccount.com is present and has the editor role assigned.
+
+
+- Open the SSH terminal and connect to the training VM
+
+
+- Clone the training github repository
+    git clone https://github.com/GoogleCloudPlatform/training-data-analyst
+
+
+-  Identify Map and Reduce operations
+    cd ~/training-data-analyst/courses/data_analysis/lab2/python
+    nano is_popular.py
+
+
+- Execute the pipeline
+    python3 ./is_popular.py
+
+    ls -al /tmp
+
+    cat /tmp/output-*
+
+
+-  Use command line parameters
+    python3 ./is_popular.py --output_prefix=/tmp/myoutput
+
+
+    ls -lrt /tmp/myoutput*
