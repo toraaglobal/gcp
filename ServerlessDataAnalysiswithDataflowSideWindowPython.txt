@@ -1,0 +1,40 @@
+- Check project permissions
+    Confirm that the default compute Service Account 
+    {project-number}-compute@developer.gserviceaccount.com is present and has the editor role assigned.
+
+    Assign the Dataflow Developer Role
+
+    
+- Ensure that the Dataflow API is successfully enabled
+
+- Open the SSH terminal and connect to the training VM
+
+- Download Code Repository
+    git clone https://github.com/GoogleCloudPlatform/training-data-analyst
+
+- Create a Cloud Storage bucket
+    BUCKET="<your unique bucket name (Project ID)>"
+    echo $BUCKET
+
+
+- Try using BigQuery query
+    SELECT
+        content
+        FROM
+        `fh-bigquery.github_extracts.contents_java_2016`
+        LIMIT
+        10
+
+
+- Explore the pipeline code
+    cd ~/training-data-analyst/courses/data_analysis/lab2/python
+    nano JavaProjectsThatNeedHelp.py
+
+
+- Execute the pipeline
+    python3 JavaProjectsThatNeedHelp.py --bucket $BUCKET --project $PROJECT --DirectRunner
+
+
+- Execute in the cloud 
+    python3 JavaProjectsThatNeedHelp.py --bucket $BUCKET --project $PROJECT --DataFlowRunner
+
